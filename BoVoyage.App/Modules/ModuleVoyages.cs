@@ -15,8 +15,8 @@ namespace BoVoyage.App
                 InformationAffichage.Creer<Voyage>(x=>x.Id, "Id", 3),
                 InformationAffichage.Creer<Voyage>(x=>x.DateAller, "Date Aller", 12),
                 InformationAffichage.Creer<Voyage>(x=>x.DateRetour, "Date Retour", 12),
-                InformationAffichage.Creer<Voyage>(x=>x.PlacesDisponibles, "Places Disponibles", 5),
-                InformationAffichage.Creer<Voyage>(x=>x.PrixParPersonne, "Prix par personne", 8),
+                InformationAffichage.Creer<Voyage>(x=>x.PlacesDisponibles, "Places Disponibles", 20),
+                InformationAffichage.Creer<Voyage>(x=>x.PrixParPersonne, "Prix par personne", 20),
             };
 
         private List<Voyage> liste = new List<Voyage>();
