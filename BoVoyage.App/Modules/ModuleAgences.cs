@@ -63,5 +63,13 @@ namespace BoVoyage.App
             };
             MethodesAgence.CreerAgence(agenceVoyage);
         }
+
+        private void Supprimer()
+        {
+            ConsoleHelper.AfficherEntete("Suppression");
+
+            Afficher();
+            
+        }
     }
 }
