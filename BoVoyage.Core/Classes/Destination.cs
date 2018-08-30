@@ -1,4 +1,6 @@
-﻿namespace BoVoyage.Core
+﻿using System.Collections.Generic;
+
+namespace BoVoyage.Core
 {
     public class Destination
     {
@@ -11,6 +13,8 @@
         public string Region { get; set; }
 
         public string Description { get; set; }
+
+        public List<Voyage> Voyages { get; set; }
 
     }
 }

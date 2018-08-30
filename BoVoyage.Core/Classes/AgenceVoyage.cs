@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BoVoyage.Core
 {
@@ -8,6 +9,8 @@ namespace BoVoyage.Core
         public int Id { get; set; }
 
         public string Nom { get; set; }
+        
+        public List<Voyage> Voyages { get; set; }
 
     }
 }

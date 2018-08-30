@@ -13,5 +13,7 @@ namespace BoVoyage.Core
 
         public byte TypeAssurance { get; set; }
 
+        public List<DossierReservation> Dossiers { get; set; }
+
     }
 }
