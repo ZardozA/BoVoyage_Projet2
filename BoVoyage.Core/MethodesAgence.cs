@@ -17,32 +17,58 @@ namespace BoVoyage.Core
                     .OrderBy(x => x.Id).ToList();
                 return agences;
             }
-        }
+        }  
         public static void CreerAgence(AgenceVoyage agence)
-        {
+        {          
             using (var contexte = new Contexte())
             {
                 contexte.AgencesVoyages.Add(agence);
                 contexte.SaveChanges();
                 //List<AgenceVoyage> liste = new List<AgenceVoyage>();
             }
-        }
-        public void SupprimerAgence(AgenceVoyage agence)
+        }     
+        public void SupprimerAgence()
         {
+            AgenceVoyage agence = ChoisirAgence();
             using (var contexte = new Contexte())
             {
                 contexte.Entry(agence).State = EntityState.Deleted;
                 contexte.SaveChanges();
             }
-        }
-        /*private static AgenceVoyage ChoisirAgence()
+        }           
+        private static void ModifierAgence(AgenceVoyage agence)
+        {                     
+            using (var contexte = new Contexte())
+            {
+                contexte.AgencesVoyages.Attach(agence);
+                contexte.Entry(agence).State = EntityState.Modified;
+                contexte.SaveChanges();
+            }
+        }       
+        private static AgenceVoyage ChoisirAgence()
         {
             Console.WriteLine("Quelle agence (Id)?");
-            var idMarque = int.Parse(Console.ReadLine());
+            var idAgence = int.Parse(Console.ReadLine());
 
-            var newAgence = new AgenceVoyage();
-            return newAgence.GetAgences(idMarque);
-        }*/
+            using (var contexte = new Contexte())
+            {
+                return contexte.AgencesVoyages                  
+                    .Single(x => x.Id == idAgence);
+            }
+        }
+
+        //implementation Modification
+        /*
+         private void Modifier()
+        {
+            ConsoleHelper.AfficherEntete("Modifier une agence");
+            AgenceVoyage choix = MethodesAgence.ChoisirAgence();
+            
+                choix.Nom = ConsoleSaisie.SaisirChaineObligatoire("Nom ?");
+            
+            MethodesAgence.ModifierAgence(choix);
+        } 
+        */
 
     }
 }

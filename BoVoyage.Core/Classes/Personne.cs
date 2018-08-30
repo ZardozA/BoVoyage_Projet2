@@ -9,7 +9,7 @@ namespace BoVoyage.Core
 
         public string Nom { get; set; }
 
-        public string Prenomd { get; set; }
+        public string Prenom { get; set; }
 
         public string Adresse { get; set; }
 

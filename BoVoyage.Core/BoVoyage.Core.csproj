@@ -63,6 +63,12 @@
     <Compile Include="Classes\Personne.cs" />
     <Compile Include="Classes\Voyage.cs" />
     <Compile Include="DAL\Contexte.cs" />
+    <Compile Include="MethodesAssurance.cs" />
+    <Compile Include="MethodesClient.cs" />
+    <Compile Include="MethodesDestination.cs" />
+    <Compile Include="MethodesDossier.cs" />
+    <Compile Include="MethodesParticipant.cs" />
+    <Compile Include="MethodesVoyage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
