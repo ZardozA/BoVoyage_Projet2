@@ -13,7 +13,7 @@ namespace BoVoyage.App
             new List<InformationAffichage>
             {
                 InformationAffichage.Creer<AgenceVoyage>(x=>x.Id, "Id", 3),
-                InformationAffichage.Creer<AgenceVoyage>(x=>x.Nom, "Nom", 10),
+                InformationAffichage.Creer<AgenceVoyage>(x=>x.Nom, "Nom", 25),
             };
 
         private readonly List<AgenceVoyage> liste = new List<AgenceVoyage>();
