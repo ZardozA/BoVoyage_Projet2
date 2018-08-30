@@ -52,8 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Application\Application.cs" />
-    <Compile Include="Application\MethodesAgence.cs" />
+    <Compile Include="MethodesAgence.cs" />
     <Compile Include="Classes\AgenceVoyage.cs" />
     <Compile Include="Classes\Assurance.cs" />
     <Compile Include="Classes\Enums.cs" />
@@ -64,10 +63,6 @@
     <Compile Include="Classes\Personne.cs" />
     <Compile Include="Classes\Voyage.cs" />
     <Compile Include="DAL\Contexte.cs" />
-    <Compile Include="Modules\ModuleAgences.cs" />
-    <Compile Include="Modules\ModuleDossiers.cs" />
-    <Compile Include="Modules\ModuleVoyages.cs" />
-    <Compile Include="Modules\ModuleClients.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

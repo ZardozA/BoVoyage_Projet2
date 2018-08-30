@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BoVoyage.Core.Application
+namespace BoVoyage.Core
 {
-    class MethodesAgence
+    public class MethodesAgence
     {
         public static void AfficherAgences()
         {
@@ -24,7 +24,7 @@ namespace BoVoyage.Core.Application
             }
         }
 
-        public static ICollection<AgenceVoyage> GetAgences()
+        public static List<AgenceVoyage> GetAgences()
         {
             using (var contexte = new Contexte())
             {
