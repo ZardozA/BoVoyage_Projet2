@@ -4,7 +4,7 @@ using BoVoyage.Framework.UI;
 
 namespace BoVoyage.Core
 {
-    public class Module1 : ModuleBase<Application>
+    public class ModuleClients : ModuleBase<Application>
     {
         // On définit ici les propriétés qu'on veut afficher
         //  et la manière de les afficher
@@ -20,7 +20,7 @@ namespace BoVoyage.Core
 
         private readonly List<Client> liste = new List<Client>();
 
-        public Module1(Application application, string nomModule)
+        public ModuleClients(Application application, string nomModule)
             : base(application, nomModule)
         {
             this.liste = new List<Client>
