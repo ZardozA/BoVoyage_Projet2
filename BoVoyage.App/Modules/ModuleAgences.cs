@@ -37,11 +37,11 @@ namespace BoVoyage.App
             });
             menu.AjouterElement(new ElementMenu("3", "Modifier")
             {
-                FonctionAExecuter = this.Nouveau
+                FonctionAExecuter = this.Modifier
             });
             menu.AjouterElement(new ElementMenu("4", "Supprimer")
             {
-                FonctionAExecuter = this.Nouveau
+                FonctionAExecuter = this.Supprimer
             });
             menu.AjouterElement(new ElementMenuQuitterMenu("R", "Revenir au menu principal..."));
         }
@@ -70,6 +70,14 @@ namespace BoVoyage.App
 
             Afficher();
             
+        }
+
+        private void Modifier()
+        {
+            ConsoleHelper.AfficherEntete("Modification");
+
+            Afficher();
+
         }
     }
 }
