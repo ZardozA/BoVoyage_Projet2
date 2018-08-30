@@ -12,6 +12,7 @@ namespace BoVoyage.Core
 
         public decimal PrixParPersonne { get; set; }
 
+        [NotMapped]
         public decimal PrixTotal { get; set; }
 
         public int IdVoyage { get; set; }
@@ -30,6 +31,7 @@ namespace BoVoyage.Core
             [ForeignKey("IdAssurance ")]
             public virtual Assurance Assurance { get; set; }
 
+        [NotMapped]
         public int EtatDossierReservation { get; set; }
 
         public List<Assurance> Assurances { get; set; }

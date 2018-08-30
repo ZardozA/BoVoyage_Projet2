@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BoVoyage.Core
 {
@@ -16,6 +17,7 @@ namespace BoVoyage.Core
 
         public DateTime DateNaissance { get; set; }
 
+        [NotMapped]
         public int Age { get; set; }
 
     }
