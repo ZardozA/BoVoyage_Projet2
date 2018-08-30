@@ -49,7 +49,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="Classes\AgenceVoyage.cs" />
+    <Compile Include="Classes\Assurance.cs" />
+    <Compile Include="Classes\Client.cs" />
+    <Compile Include="Classes\Destination.cs" />
+    <Compile Include="Classes\DossierReservation.cs" />
+    <Compile Include="Classes\Participant.cs" />
+    <Compile Include="Classes\Personne.cs" />
+    <Compile Include="Classes\Voyage.cs" />
+    <Compile Include="DAL\Contexte.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
