@@ -55,6 +55,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Application.cs" />
+    <Compile Include="Modules\ModuleAgences.cs" />
+    <Compile Include="Modules\ModuleClients.cs" />
+    <Compile Include="Modules\ModuleDossiers.cs" />
+    <Compile Include="Modules\ModuleVoyages.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

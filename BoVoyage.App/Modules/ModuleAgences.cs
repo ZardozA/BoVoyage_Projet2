@@ -8,25 +8,25 @@ namespace BoVoyage.Core
     {
         // On définit ici les propriétés qu'on veut afficher
         //  et la manière de les afficher
-        private static readonly List<InformationAffichage> strategieAffichageAgences =
+        private static readonly List<InformationAffichage> strategieAffichageClients =
             new List<InformationAffichage>
             {
-                InformationAffichage.Creer<AgenceVoyage>(x=>x.Id, "Id", 3),
-                InformationAffichage.Creer<AgenceVoyage>(x=>x.Nom, "Nom", 10),
-                InformationAffichage.Creer<AgenceVoyage>(x=>x.Prenom, "Prenom", 10),
-                InformationAffichage.Creer<AgenceVoyage>(x=>x.Email, "Email", 15),
-                InformationAffichage.Creer<AgenceVoyage>(x=>x.DateInscription, "Date", 10),
+                InformationAffichage.Creer<Client>(x=>x.Id, "Id", 3),
+                InformationAffichage.Creer<Client>(x=>x.Nom, "Nom", 10),
+                InformationAffichage.Creer<Client>(x=>x.Prenom, "Prenom", 10),
+                InformationAffichage.Creer<Client>(x=>x.Email, "Email", 15),
+                InformationAffichage.Creer<Client>(x=>x.DateInscription, "Date", 10),
             };
 
-        private readonly List<AgenceVoyage> liste = new List<AgenceVoyage>();
+        private readonly List<Client> liste = new List<Client>();
 
         public ModuleAgences(Application application, string nomModule)
             : base(application, nomModule)
         {
-            this.liste = new List<AgenceVoyage>
+            this.liste = new List<Client>
             {
-                new AgenceVoyage{Id = 1, Nom = "BAZAN", Prenom = "Yannick", DateInscription = new DateTime(2010,1,1),Email = "ybazan.pro@live.fr" },
-                new AgenceVoyage{Id = 2, Nom = "PEANT", Prenom = "Frédéric", Email = "f.peant@gtm-ingenierie.fr" },
+                new Client{Id = 1, Nom = "BAZAN", Prenom = "Yannick", DateInscription = new DateTime(2010,1,1),Email = "ybazan.pro@live.fr" },
+                new Client{Id = 2, Nom = "PEANT", Prenom = "Frédéric", Email = "f.peant@gtm-ingenierie.fr" },
             };
         }
 
@@ -36,15 +36,7 @@ namespace BoVoyage.Core
             {
                 FonctionAExecuter = this.Afficher
             });
-            menu.AjouterElement(new ElementMenu("2", "Créer")
-            {
-                FonctionAExecuter = this.Nouveau
-            });
-            menu.AjouterElement(new ElementMenu("3", "Modifier")
-            {
-                FonctionAExecuter = this.Nouveau
-            });
-            menu.AjouterElement(new ElementMenu("4", "Supprimer")
+            menu.AjouterElement(new ElementMenu("2", "Nouveau")
             {
                 FonctionAExecuter = this.Nouveau
             });
@@ -71,6 +63,6 @@ namespace BoVoyage.Core
             };
 
             this.liste.Add(client);
-        }*/
+        }
     }
 }

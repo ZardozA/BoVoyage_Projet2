@@ -8,7 +8,7 @@ namespace BoVoyage.Core
     {
         // On définit ici les propriétés qu'on veut afficher
         //  et la manière de les afficher
-        /*private static readonly List<InformationAffichage> strategieAffichageClients =
+        private static readonly List<InformationAffichage> strategieAffichageClients =
             new List<InformationAffichage>
             {
                 InformationAffichage.Creer<Client>(x=>x.Id, "Id", 3),
@@ -63,6 +63,6 @@ namespace BoVoyage.Core
             };
 
             this.liste.Add(client);
-        }*/
+        }
     }
 }
