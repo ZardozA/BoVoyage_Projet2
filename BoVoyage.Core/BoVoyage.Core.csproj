@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application\Application.cs" />
+    <Compile Include="Application\MethodesAgence.cs" />
     <Compile Include="Classes\AgenceVoyage.cs" />
     <Compile Include="Classes\Assurance.cs" />
     <Compile Include="Classes\Enums.cs" />
