@@ -18,8 +18,8 @@ namespace BoVoyage.App
         protected override void InitialiserModules()
         {
             this.ModuleClients = this.AjouterModule(new ModuleClients(this, "Gestion des Clients"));
-            //this.MdduleParticipants = this.AjouterModule(new ModuleClients(this, "Gestion des Participants"));
-            //this.MdduleVoyages = this.AjouterModule(new ModuleVoyages(this, "Gestion des Voyages"));
+            //this.ModuleParticipants = this.AjouterModule(new ModuleClients(this, "Gestion des Participants"));
+            //this.ModuleVoyages = this.AjouterModule(new ModuleVoyages(this, "Gestion des Voyages"));
             this.ModuleAgences = this.AjouterModule(new ModuleAgences(this, "Gestion des Agences"));
             //this.ModuleDossiers = this.AjouterModule(new ModuleDossiers(this, "Gestion des Dossiers de Réservation"));
 
