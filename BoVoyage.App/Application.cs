@@ -1,7 +1,7 @@
 ﻿using BoVoyage.Core;
 using BoVoyage.Framework.UI;
 
-namespace BoVoyage.Core
+namespace BoVoyage.App
 {
     public class Application : ApplicationBase
     {
@@ -10,12 +10,12 @@ namespace BoVoyage.Core
         {
         }
 
-        public Module1 Module1 { get; private set; }
+        public ModuleAgences ModuleAgences { get; private set; }
 
         protected override void InitialiserModules()
         {
-            this.Module1 = this.AjouterModule(new Module1(this, "Gestion des Clients"));
-            this.Module1 = this.AjouterModule(new Module1(this, "Gestion des Voyages"));
+            this.ModuleAgences = this.AjouterModule(new ModuleAgences(this, "Gestion des Agences"));
+            
         }
     }
 }
