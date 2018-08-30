@@ -16,13 +16,12 @@ namespace BoVoyage.App
                 InformationAffichage.Creer<AgenceVoyage>(x=>x.Nom, "Nom", 25),
             };
 
-        private readonly List<AgenceVoyage> liste = new List<AgenceVoyage>();
+        private List<AgenceVoyage> liste = new List<AgenceVoyage>();
 
         public ModuleAgences(Application application, string nomModule)
          : base(application, nomModule)
         {
-            
-            this.liste = MethodesAgence.GetAgences();
+         
 
         }
 
@@ -50,7 +49,7 @@ namespace BoVoyage.App
         private void Afficher()
         {
             ConsoleHelper.AfficherEntete("Afficher");
-
+            this.liste = MethodesAgence.GetAgences();
             ConsoleHelper.AfficherListe(this.liste, strategieAffichageAgences);
         }
 
@@ -58,12 +57,11 @@ namespace BoVoyage.App
         {
             ConsoleHelper.AfficherEntete("Nouveau");
 
-            var agenceVoyage = new AgenceVoyage
+            var agenceVoyage = new AgenceVoyage()
             {
                 Nom = ConsoleSaisie.SaisirChaineObligatoire("Nom ?"),
             };
-
-            this.liste.Add(agenceVoyage);
+            MethodesAgence.CreerAgence(agenceVoyage);
         }
     }
 }

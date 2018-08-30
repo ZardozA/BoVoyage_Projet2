@@ -8,22 +8,6 @@ namespace BoVoyage.Core
 {
     public class MethodesAgence
     {
-        public static void AfficherAgences()
-        {
-            Console.WriteLine();
-            Console.WriteLine("> Agences");
-
-            using (var contexte = new Contexte())
-            {
-
-                ICollection<AgenceVoyage> agences = GetAgences();
-                foreach (var agence in agences)
-                {
-                    Console.WriteLine($"({agence.Id}) : {agence.Nom}");
-                }
-            }
-        }
-
         public static List<AgenceVoyage> GetAgences()
         {
             using (var contexte = new Contexte())
@@ -31,6 +15,15 @@ namespace BoVoyage.Core
                 var agences = contexte.AgencesVoyages
                     .OrderBy(x => x.Id).ToList();
                 return agences;
+            }
+        }
+        public static void CreerAgence(AgenceVoyage agence)
+        {
+            using (var contexte = new Contexte())
+            {
+                contexte.AgencesVoyages.Add(agence);
+                contexte.SaveChanges();
+                List<AgenceVoyage> liste = new List<AgenceVoyage>();
             }
         }
     }
