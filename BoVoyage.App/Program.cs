@@ -11,18 +11,6 @@ namespace BoVoyage.App
     {
         static void Main(string[] args)
         {
-            /*var dossiersReservations = MethodesDossier.GetDossiers();
-
-            foreach (var dossier in dossiersReservations)
-            {
-                Console.Write($"({dossier.Id})");
-             
-            }
-            Console.ReadKey();*/
-
-
-
-
             var application = new Application();
             application.Demarrer();
         }
