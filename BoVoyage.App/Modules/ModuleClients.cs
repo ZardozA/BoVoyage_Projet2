@@ -55,14 +55,14 @@ namespace BoVoyage.App
 
         private void Afficher()
         {
-            ConsoleHelper.AfficherEntete("Afficher");
+            ConsoleHelper.AfficherEntete("Afficher Clients");
             this.liste = MethodesClient.GetClients();
             ConsoleHelper.AfficherListe(this.liste, strategieAffichageClients);
         }
 
         private void Nouveau()
         {
-            ConsoleHelper.AfficherEntete("Nouveau");
+            ConsoleHelper.AfficherEntete("Nouveau Client");
 
             Client client = new Client()
             {

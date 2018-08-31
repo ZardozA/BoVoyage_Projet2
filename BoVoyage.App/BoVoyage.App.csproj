@@ -60,6 +60,7 @@
     <Compile Include="Modules\ModuleParticipants.cs" />
     <Compile Include="Modules\ModuleDossiers.cs" />
     <Compile Include="Modules\ModuleAgences.cs" />
+    <Compile Include="Modules\ModuleAssurances.cs" />
     <Compile Include="Modules\ModuleVoyages.cs" />
     <Compile Include="Modules\ModuleClients.cs" />
     <Compile Include="Program.cs" />

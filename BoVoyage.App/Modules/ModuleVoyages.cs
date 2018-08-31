@@ -51,14 +51,14 @@ namespace BoVoyage.App
 
         private void Afficher()
         {
-            ConsoleHelper.AfficherEntete("Afficher");
+            ConsoleHelper.AfficherEntete("Afficher les Voyages");
             this.liste = MethodesVoyage.GetVoyages();
             ConsoleHelper.AfficherListe(this.liste, strategieAffichageVoyages);
         }
 
         private void Nouveau()
         {
-            ConsoleHelper.AfficherEntete("Nouveau");
+            ConsoleHelper.AfficherEntete("Nouveau Voyage");
 
             var voyage = new Voyage()
             {
@@ -72,7 +72,7 @@ namespace BoVoyage.App
 
         private void Supprimer()
         {
-            ConsoleHelper.AfficherEntete("Suppression");
+            ConsoleHelper.AfficherEntete("Suppression d'un voyage");
 
             Afficher();
             
@@ -80,7 +80,7 @@ namespace BoVoyage.App
 
         private void Modifier()
         {
-            ConsoleHelper.AfficherEntete("Modification");
+            ConsoleHelper.AfficherEntete("Modification d'un voyage");
 
             Afficher();
 

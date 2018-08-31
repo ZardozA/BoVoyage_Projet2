@@ -55,14 +55,14 @@ namespace BoVoyage.App
 
         private void Afficher()
         {
-            ConsoleHelper.AfficherEntete("Afficher");
+            ConsoleHelper.AfficherEntete("Afficher Destination");
             this.liste = MethodesDestination.GetDestinations();
             ConsoleHelper.AfficherListe(this.liste, strategieAffichageDestinations);
         }
 
         private void Nouveau()
         {
-            ConsoleHelper.AfficherEntete("Nouveau");
+            ConsoleHelper.AfficherEntete("Nouvelle Destination");
 
             Destination destination = new Destination()
             {              

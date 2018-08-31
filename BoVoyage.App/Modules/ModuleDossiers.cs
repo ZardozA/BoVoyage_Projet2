@@ -55,14 +55,14 @@ namespace BoVoyage.App
 
         private void Afficher()
         {
-            ConsoleHelper.AfficherEntete("Afficher");
+            ConsoleHelper.AfficherEntete("Afficher les dossiers de réservation");
             this.liste = MethodesDossier.GetDossiers();
             ConsoleHelper.AfficherListe(this.liste, strategieAffichageDossiers);
         }
 
         private void Nouveau()
         {
-            ConsoleHelper.AfficherEntete("Nouveau");
+            ConsoleHelper.AfficherEntete("Nouveau dossier");
 
             DossierReservation dossier = new DossierReservation()
             {

@@ -55,14 +55,14 @@ namespace BoVoyage.App
 
         private void Afficher()
         {
-            ConsoleHelper.AfficherEntete("Afficher");
+            ConsoleHelper.AfficherEntete("Afficher les Participants");
             this.liste = MethodesParticipant.GetParticipants();
             ConsoleHelper.AfficherListe(this.liste, strategieAffichageParticipants);
         }
 
         private void Nouveau()
         {
-            ConsoleHelper.AfficherEntete("Nouveau");
+            ConsoleHelper.AfficherEntete("Nouveau Participant");
 
             Participant participant = new Participant()
             {
