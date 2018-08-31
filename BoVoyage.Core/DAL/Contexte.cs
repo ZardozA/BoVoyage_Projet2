@@ -12,6 +12,7 @@ namespace BoVoyage.Core
         public DbSet<Destination> Destinations { get; set; }
         public DbSet<AgenceVoyage> AgencesVoyages { get; set; }
         public DbSet<AssuranceDossier> AssurancesDossiers { get; set; }
+        public DbSet<DossierAnnule> DossiersAnnules { get; set; }
 
     }
 }
