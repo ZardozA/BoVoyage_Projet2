@@ -25,9 +25,6 @@ namespace BoVoyage.Core
             [ForeignKey("IdClient")]
             public virtual Client Client { get; set; }
 
-        
-        public byte RaisonAnnulationDossier { get; set; }
-
         [NotMapped]
         public byte EtatDossierReservation { get; set; }
 
@@ -36,31 +33,22 @@ namespace BoVoyage.Core
         public virtual ICollection<Participant> Participants { get; set; }
 
         
-        public static void Annuler(int RaisonAnnulationDossier)
+        /*public void Annuler(int RaisonAnnulationDossier)
         {
-            
-            var dossier = MethodesDossier.ChoisirDossier();
-            Console.WriteLine(" choisir la raison de l'annulation");
-
-            int i = 1;
-            foreach (var raison in Enums.RaisonAnnulationDossier.GetValues(typeof(string)))
-                Console.Write($"({i++} {raison}) ");
-            Console.WriteLine();
-            var saisie= ConsoleSaisie.SaisirEntierObligatoire("Raison ?");
-            switch (saisie)
+            switch (RaisonAnnulationDossier)
             {
                 case 1:
-                    dossier.RaisonAnnulationDossier = 1;
+                    this.RaisonAnnulationDossier = 1;
                     break;
                 case 2:
-                    dossier.RaisonAnnulationDossier = 2;
+                    this.RaisonAnnulationDossier = 2;
                     break;
             }               
             dossier.EtatDossierReservation = 2;
             MethodesDossier.ModifierDossier(dossier);
 
+        }*/
 
-        }
         public void ValiderSolvabilite()
         {
             Console.WriteLine("Verification de Solvabilité");
@@ -75,7 +63,7 @@ namespace BoVoyage.Core
             {
                 Console.WriteLine("Erreur, le dossier va etre annulé");
                 Console.ReadKey();
-                Annuler(1);
+                /*Annuler(1);*/
             }
             
         }
