@@ -60,7 +60,7 @@ namespace BoVoyage.App
             ConsoleHelper.AfficherListe(this.liste, strategieAffichageParticipants);
         }
 
-        private void Nouveau()
+        public void Nouveau()
         {
             ConsoleHelper.AfficherEntete("Nouveau Participant");
 

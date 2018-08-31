@@ -46,7 +46,7 @@ namespace BoVoyage.App
             menu.AjouterElement(new ElementMenuQuitterMenu("R", "Revenir au menu principal..."));
         }
 
-        private void Afficher(string titre)
+        public void Afficher(string titre)
         {
             ConsoleHelper.AfficherEntete(titre);
             this.liste = MethodesClient.GetClients();
@@ -59,6 +59,15 @@ namespace BoVoyage.App
             this.liste = MethodesClient.GetClients();
             ConsoleHelper.AfficherListe(this.liste, strategieAffichageClients);
         }
+
+        public static void AfficherClients(string titre)
+        {
+            ConsoleHelper.AfficherEntete(titre);
+            List <Client> liste = new List<Client>();
+            liste = MethodesClient.GetClients();
+            ConsoleHelper.AfficherListe(liste, strategieAffichageClients);
+        }
+
 
         private void Nouveau()
         {

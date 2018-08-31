@@ -63,6 +63,14 @@ namespace BoVoyage.App
             ConsoleHelper.AfficherListe(this.liste, strategieAffichageVoyages);
         }
 
+        public static void AfficherVoyages(string titre)
+        {
+            ConsoleHelper.AfficherEntete(titre);
+            List<Voyage> liste = new List<Voyage>();
+            liste = MethodesVoyage.GetVoyages();
+            ConsoleHelper.AfficherListe(liste, strategieAffichageVoyages);
+        }
+
         private void Nouveau()
         {
             ConsoleHelper.AfficherEntete("Nouveau Voyage");

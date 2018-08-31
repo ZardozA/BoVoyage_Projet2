@@ -55,6 +55,13 @@ namespace BoVoyage.Core
             }
         }
 
+        public static int Choisir(string texte)
+        {
+            Console.WriteLine(texte);
+            var choix = int.Parse(Console.ReadLine());
+            return choix;
+        }
+
         public static void CalculerReductionAge(DateTime date)
         {
             DateTime now = DateTime.Today;

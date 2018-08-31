@@ -14,7 +14,7 @@ namespace BoVoyage.App
                 InformationAffichage.Creer<DossierReservation>(x=>x.NumeroCarteBancaire, "N° Carte Bancaire", 20),
                 InformationAffichage.Creer<DossierReservation>(x=>x.PrixParPersonne, "Prix par personne", 20),
                 InformationAffichage.Creer<DossierReservation>(x=>x.IdClient, "Id Client", 3),
-                
+
 
             };
 
@@ -60,7 +60,7 @@ namespace BoVoyage.App
             ConsoleHelper.AfficherListe(this.liste, strategieAffichageDossiers);
         }
 
-        private void Nouveau()
+        /*private void Nouveau()
         {
             ConsoleHelper.AfficherEntete("Nouveau dossier");
 
@@ -72,6 +72,68 @@ namespace BoVoyage.App
 
 
             };
+            MethodesDossier.CreerDossier(dossier);
+        }*/
+
+        private void Nouveau()
+        {
+            ConsoleHelper.AfficherEntete("Nouveau dossier");
+
+
+            DossierReservation dossier = new DossierReservation();
+
+            ModuleClients.AfficherClients("Liste des Clients");
+            dossier.IdClient = MethodesDossier.Choisir("Choisir client (Id):");
+
+            ModuleVoyages.AfficherVoyages("Liste des Voyages");
+            dossier.IdVoyage = MethodesDossier.Choisir("Choisir voyage (Id):");
+
+            dossier.NumeroCarteBancaire = ConsoleSaisie.SaisirChaineObligatoire("Numero de Carte Bancaire ?");
+            dossier.PrixParPersonne = ConsoleSaisie.SaisirDecimalObligatoire("Prix Par Personne ?");
+            MethodesDossier.CreerDossier(dossier);
+
+            int nbParticipants = 1;
+
+
+            while (nbParticipants > 9)
+            {
+                nbParticipants = ConsoleSaisie.SaisirEntierObligatoire("Indiquer le nombre de participants qui doit être inférieur à 9:");
+            }
+
+            for (var i = nbParticipants; i > 0; i--)
+            {
+                Console.WriteLine("Voulez-vous créer un nouveau participant (O/N)?");
+                var choix = Console.ReadLine();
+                    switch (choix)
+                    {
+                        case "O":
+                        Participant participant = new Participant()
+                        {
+                            Civilite = ConsoleSaisie.SaisirChaineObligatoire("Civilité ?"),
+                            Nom = ConsoleSaisie.SaisirChaineObligatoire("Nom ?"),
+                            Prenom = ConsoleSaisie.SaisirChaineObligatoire("Prénom?"),
+                            Adresse = ConsoleSaisie.SaisirChaineObligatoire("Adresse ?"),
+                            Telephone = ConsoleSaisie.SaisirChaineObligatoire("Téléphone ?"),
+                            DateNaissance = ConsoleSaisie.SaisirDateObligatoire("Date de Naissance ?"),
+                            IdDossier = dossier.Id,
+                        };
+
+                        //participant.Reduction = 
+                        MethodesParticipant.CreerParticipant(participant);
+                        
+                        break;
+
+                    }
+                    
+                  
+                ///ModuleParticipants.AfficherParticipants("")
+            }
+
+            
+
+
+
+
             MethodesDossier.CreerDossier(dossier);
         }
 
@@ -92,7 +154,7 @@ namespace BoVoyage.App
             choix.PrixParPersonne = ConsoleSaisie.SaisirDecimalObligatoire("Prix Par Personne ?");
             choix.IdClient = ConsoleSaisie.SaisirEntierObligatoire("ID du client");
 
-           
+
             MethodesDossier.ModifierDossier(choix);
         }
     }
