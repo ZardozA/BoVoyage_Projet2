@@ -16,6 +16,7 @@ namespace BoVoyage.Core
                 return voyages;
             }
         }
+
         public static void CreerVoyage(Voyage voyage)
         {
 
@@ -46,7 +47,7 @@ namespace BoVoyage.Core
         }
         public static Voyage ChoisirVoyage()
         {
-            Console.WriteLine("Quelle Voyage (Id)?");
+            Console.WriteLine("Quel Voyage (Id)?");
             var idVoyage = int.Parse(Console.ReadLine());
 
             using (var contexte = new Contexte())
@@ -55,24 +56,5 @@ namespace BoVoyage.Core
                     .Single(x => x.Id == idVoyage);
             }
         }
-
-        //implementation Modification
-        /*
-          private void Modifier()
-        {
-            ConsoleHelper.AfficherEntete("Modifier un Voyage");
-            Voyage choix = MethodesVoyage.ChoisirVoyage();
-
-            choix.DateAller = ConsoleSaisie.SaisirDateObligatoire("Date Aller ?");
-            choix.DateRetour = ConsoleSaisie.SaisirDateObligatoire("Date Aller ?");
-            choix.PlacesDisponibles = ConsoleSaisie.SaisirEntierObligatoire("Places Disponibles ?");
-            choix.PrixParPersonne = ConsoleSaisie.SaisirDecimalObligatoire("Prix par personne ?");
-            choix.AgenceVoyage = ConsoleSaisie.SaisirChaineObligatoire("Nom de l'agence ?");
-            choix.Destination = ConsoleSaisie.SaisirChaineObligatoire("Destination ?");
-
-            MethodesVoyage.ModifierVoyage(choix);
-        }
-        */
-
     }
 }
