@@ -7,7 +7,7 @@ namespace BoVoyage.Core
 {
     public class MethodesParticipant
     {
-        public static List<Participant> GetPartipants()
+        public static List<Participant> GetParticipants()
         {
             using (var contexte = new Contexte())
             {
