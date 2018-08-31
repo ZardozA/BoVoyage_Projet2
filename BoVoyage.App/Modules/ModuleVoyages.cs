@@ -34,7 +34,7 @@ namespace BoVoyage.App
             {
                 FonctionAExecuter = this.Afficher
             });
-            menu.AjouterElement(new ElementMenu("2", "Créer")
+            menu.AjouterElement(new ElementMenu("2", "Créer - ATTENTION LA CREATION NE SE FAIT PAS - ERREUR DUE A LA FOREIGN KEY sur idAgenceVoyage")
             {
                 FonctionAExecuter = this.Nouveau
             });
