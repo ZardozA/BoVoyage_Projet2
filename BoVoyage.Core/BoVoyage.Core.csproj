@@ -71,6 +71,7 @@
     <Compile Include="MethodesDossier.cs" />
     <Compile Include="MethodesParticipant.cs" />
     <Compile Include="MethodesVoyage.cs" />
+    <Compile Include="OutilsReservation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
