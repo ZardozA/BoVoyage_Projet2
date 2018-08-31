@@ -52,14 +52,14 @@ namespace BoVoyage.App
 
         private void Afficher()
         {
-            ConsoleHelper.AfficherEntete("Afficher");
+            ConsoleHelper.AfficherEntete("Afficher Agences");
             this.liste = MethodesAgence.GetAgences();
             ConsoleHelper.AfficherListe(this.liste, strategieAffichageAgence);
         }
 
         private void Nouveau()
         {
-            ConsoleHelper.AfficherEntete("Nouveau");
+            ConsoleHelper.AfficherEntete("Nouvelle Agence");
 
             AgenceVoyage agence = new AgenceVoyage()
             {              
