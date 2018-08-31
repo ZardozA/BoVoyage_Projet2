@@ -9,7 +9,9 @@ namespace BoVoyage.Core
 
         public decimal Montant { get; set; }
      
-        public byte Type { get; set; }
+        public string Type { get; set; }
+
+        public byte Code { get; set; }
 
         public List<DossierReservation> Dossiers { get; set; }
 
