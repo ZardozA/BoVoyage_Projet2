@@ -25,7 +25,7 @@ namespace BoVoyage.Core
                 contexte.SaveChanges();
             }
         }
-        public void SupprimerClient()
+        public static void SupprimerClient()
         {
             Client client = ChoisirClient();
             using (var contexte = new Contexte())
@@ -45,13 +45,9 @@ namespace BoVoyage.Core
         }
         public static Client ChoisirClient()
         {
-            var liste = MethodesClient.GetClients();
-            foreach (var client in liste)
-            {
-                Console.Write($"({client.Id}) - {client.Nom} - {client.Prenom} - {client.DateNaissance} \n");
-            }
+            AfficherClient();
 
-            Console.WriteLine("Quelle agence (Id)?");
+            Console.WriteLine("Quel client (Id)?");
 
             var idClient = int.Parse(Console.ReadLine());
 
@@ -62,24 +58,13 @@ namespace BoVoyage.Core
             }
         }
 
-        //implementation Modification
-        /*
-          private void Modifier()
+        public static void AfficherClient()
         {
-            ConsoleHelper.AfficherEntete("Modifier un Dossier");
-            Client choix = MethodesClient.ChoisirClient();
-
-            choix.Civilite = ConsoleSaisie.SaisirChaineObligatoire("Civilite ?");
-            choix.Nom = ConsoleSaisie.SaisirChaineObligatoire("Nom ?");
-            choix.Prenom = ConsoleSaisie.SaisirChaineObligatoire("Prenom ?");
-            choix.Adresse = ConsoleSaisie.SaisirChaineObligatoire("Adresse ?");
-            choix.Telephone = ConsoleSaisie.SaisirChaineObligatoire("Telephone ?");
-            choix.DateNaissance = ConsoleSaisie.SaisirDateObligatoire("DateNaissance ?");
-            choix.Email = ConsoleSaisie.SaisirChaineObligatoire("Telephone ?");
-
-            MethodesClient.ModifierClient(choix);
+            var liste = MethodesClient.GetClients();
+            foreach (var client in liste)
+            {
+                Console.Write($"({client.Id}) - {client.Nom} - {client.Prenom} - {client.DateNaissance} \n");
+            }
         }
-        */
-
-    }
+}
 }

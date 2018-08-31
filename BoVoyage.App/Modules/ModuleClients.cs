@@ -75,13 +75,16 @@ namespace BoVoyage.App
         private void Supprimer()
         {
             ConsoleHelper.AfficherEntete("Suppression");
-
-            Afficher();
+            MethodesClient.SupprimerClient();
+            
 
         }
         private void Modifier()
         {
             ConsoleHelper.AfficherEntete("Modifier un Client");
+
+            Afficher();
+
             Client choix = MethodesClient.ChoisirClient();
 
             choix.Civilite = ConsoleSaisie.SaisirChaineObligatoire("Civilite ?");
