@@ -4,7 +4,7 @@
     {
         public int Id { get; set; }
 
-        public float Reduction { get; set; }
+        public double Reduction { get; set; }
 
     }
 }
