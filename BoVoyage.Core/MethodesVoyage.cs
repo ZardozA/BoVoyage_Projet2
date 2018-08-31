@@ -25,7 +25,7 @@ namespace BoVoyage.Core
                 contexte.SaveChanges();
             }
         }
-        public void SupprimerVoyage()
+        public static void SupprimerVoyage()
         {
             Voyage voyage = ChoisirVoyage();
             using (var contexte = new Contexte())
@@ -34,7 +34,7 @@ namespace BoVoyage.Core
                 contexte.SaveChanges();
             }
         }
-        private static void ModifierVoyage(Voyage voyage)
+        public static void ModifierVoyage(Voyage voyage)
         {
 
             using (var contexte = new Contexte())
@@ -44,7 +44,7 @@ namespace BoVoyage.Core
                 contexte.SaveChanges();
             }
         }
-        private static Voyage ChoisirVoyage()
+        public static Voyage ChoisirVoyage()
         {
             Console.WriteLine("Quelle Voyage (Id)?");
             var idVoyage = int.Parse(Console.ReadLine());
