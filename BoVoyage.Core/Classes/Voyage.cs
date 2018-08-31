@@ -6,7 +6,6 @@ namespace BoVoyage.Core
 {
     public class Voyage
     {
-        [Column("IdVoyage")]
         public int Id { get; set; }
 
         public DateTime DateAller { get; set; }
