@@ -12,10 +12,10 @@ namespace BoVoyage.App
         private static readonly List<InformationAffichage> strategieAffichageParticipants =
             new List<InformationAffichage>
             {
-                InformationAffichage.Creer<Client>(x=>x.Id, "Id", 3),
-                InformationAffichage.Creer<Client>(x=>x.Nom, "Nom", 25),
-                InformationAffichage.Creer<Client>(x=>x.Prenom, "Prénom", 25),
-                InformationAffichage.Creer<Client>(x=>x.DateNaissance, "Date de Naissance", 25),
+                InformationAffichage.Creer<Participant>(x=>x.Id, "Id", 3),
+                InformationAffichage.Creer<Participant>(x=>x.Nom, "Nom", 25),
+                InformationAffichage.Creer<Participant>(x=>x.Prenom, "Prénom", 25),
+                InformationAffichage.Creer<Participant>(x=>x.DateNaissance, "Date de Naissance", 25),
             };
 
         private List<Participant> liste = new List<Participant>();
