@@ -24,7 +24,7 @@ namespace BoVoyage.Core
                 contexte.SaveChanges();
             }
         }
-        public void SupprimerParticipant()
+        public static void SupprimerParticipant()
         {
             Participant participant = ChoisirParticipant();
             using (var contexte = new Contexte())
@@ -33,7 +33,7 @@ namespace BoVoyage.Core
                 contexte.SaveChanges();
             }
         }
-        private static void ModifierParticipant(Participant participant)
+        public static void ModifierParticipant(Participant participant)
         {
             using (var contexte = new Contexte())
             {
@@ -42,9 +42,11 @@ namespace BoVoyage.Core
                 contexte.SaveChanges();
             }
         }
-        private static Participant ChoisirParticipant()
+        public static Participant ChoisirParticipant()
         {
-            Console.WriteLine("Quelle participant (Id)?");
+
+            Console.WriteLine("Quel participant (Id)?");
+
             var idParticipant = int.Parse(Console.ReadLine());
 
             using (var contexte = new Contexte())
@@ -53,25 +55,5 @@ namespace BoVoyage.Core
                     .Single(x => x.Id == idParticipant);
             }
         }
-
-        //implementation Modification
-        /*
-          private void Modifier()
-        {
-            ConsoleHelper.AfficherEntete("Modifier un Dossier");
-            Participant choix = MethodesParticipant.ChoisirParticipant();
-
-            choix.Civilite = ConsoleSaisie.SaisirChaineObligatoire("Civilite ?");
-            choix.Nom = ConsoleSaisie.SaisirChaineObligatoire("Nom ?");
-            choix.Prenom = ConsoleSaisie.SaisirChaineObligatoire("Prenom ?");
-            choix.Adresse = ConsoleSaisie.SaisirChaineObligatoire("Adresse ?");
-            choix.Telephone = ConsoleSaisie.SaisirChaineObligatoire("Telephone ?");
-            choix.DateNaissance = ConsoleSaisie.SaisirDateObligatoire("DateNaissance ?");
-            choix.Reduction = ConsoleSaisie.SaisirEntierOptionnel("Reduction (optionel) ?");
-            
-            MethodesParticipant.ModifierParticipant(choix);
-        }
-        */
-
     }
 }

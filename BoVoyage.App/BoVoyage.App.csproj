@@ -56,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Application.cs" />
+    <Compile Include="Modules\ModuleParticipants.cs" />
     <Compile Include="Modules\ModuleDossiers.cs" />
     <Compile Include="Modules\ModuleAgences.cs" />
     <Compile Include="Modules\ModuleVoyages.cs" />
