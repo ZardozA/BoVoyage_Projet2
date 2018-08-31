@@ -11,7 +11,7 @@ namespace BoVoyage.App
             new List<InformationAffichage>
             {
                 InformationAffichage.Creer<DossierReservation>(x=>x.Id, "Id", 3),
-                InformationAffichage.Creer<DossierReservation>(x=>x.NumeroCarteBancaire, "Numero de Carte Bancaire", 20),
+                InformationAffichage.Creer<DossierReservation>(x=>x.NumeroCarteBancaire, "N° Carte Bancaire", 20),
                 InformationAffichage.Creer<DossierReservation>(x=>x.PrixParPersonne, "Prix par personne", 20),
                 InformationAffichage.Creer<DossierReservation>(x=>x.IdClient, "Id Client", 3),
                 

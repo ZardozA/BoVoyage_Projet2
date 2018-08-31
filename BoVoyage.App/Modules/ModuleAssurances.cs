@@ -15,7 +15,7 @@ namespace BoVoyage.App
                 InformationAffichage.Creer<Assurance>(x=>x.Id, "Id", 3),
                 InformationAffichage.Creer<Assurance>(x=>x.Montant, "Montant", 10),
                 InformationAffichage.Creer<Assurance>(x=>x.Type, "Type", 12),
-                InformationAffichage.Creer<Assurance>(x=>x.Code, "Type", 12),
+                InformationAffichage.Creer<Assurance>(x=>x.Code, "Code", 12),
             };
 
         private List<Assurance> liste = new List<Assurance>();
@@ -66,22 +66,26 @@ namespace BoVoyage.App
         {
             ConsoleHelper.AfficherEntete("Nouvelle Assurance");
 
-            var assurance = new Assurance()
+            Console.WriteLine("CETTE PARTIE N'EST PAS OP2RATIONNELLE");
+
+            /*var assurance = new Assurance()
             {
                 Montant = ConsoleSaisie.SaisirDecimalObligatoire("Montant de l'assurance ?"),
                 Type = ConsoleSaisie.SaisirChaineObligatoire("Type d'Assurance ?"),
-                byte[] intCode = BitConverter.GetBytes(ConsoleSaisie.SaisirEntierObligatoire("Code Assurance ?")),
+                Code = TransfoIntByte(ConsoleSaisie.SaisirEntierObligatoire("Code d'Assurance ?")),
 
+        };
+            MethodesAssurance.CreerAssurance(assurance);*/
+        }
 
-                byte[] intBytes = BitConverter.GetBytes(intValue);
+        private byte[] TransfoIntByte(int intValue)
+        {
+            byte[] intBytes = BitConverter.GetBytes(intValue);
             Array.Reverse(intBytes);
             byte[] result = intBytes;
 
-        };
-            MethodesAssurance.CreerAssurance(assurance);
+            return result;
         }
-
-        private void 
 
         private void Supprimer()
         {
