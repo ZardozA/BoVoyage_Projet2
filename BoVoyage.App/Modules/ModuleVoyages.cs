@@ -24,7 +24,7 @@ namespace BoVoyage.App
         public ModuleVoyages(Application application, string nomModule)
          : base(application, nomModule)
         {
-         
+
 
         }
 
@@ -49,6 +49,13 @@ namespace BoVoyage.App
             menu.AjouterElement(new ElementMenuQuitterMenu("R", "Revenir au menu principal..."));
         }
 
+        private void Afficher(string titre)
+        {
+            ConsoleHelper.AfficherEntete(titre);
+            this.liste = MethodesVoyage.GetVoyages();
+            ConsoleHelper.AfficherListe(this.liste, strategieAffichageVoyages);
+        }
+
         private void Afficher()
         {
             ConsoleHelper.AfficherEntete("Afficher les Voyages");
@@ -65,24 +72,30 @@ namespace BoVoyage.App
                 DateAller = ConsoleSaisie.SaisirDateObligatoire("Date Aller ?"),
                 DateRetour = ConsoleSaisie.SaisirDateObligatoire("Date Retour ?"),
                 PlacesDisponibles = ConsoleSaisie.SaisirEntierObligatoire("Places Disponibles ?"),
-                PrixParPersonne = ConsoleSaisie.SaisirDecimalObligatoire("Nom ?"),
+                PrixParPersonne = ConsoleSaisie.SaisirDecimalObligatoire("Prix par Personne ?"),
             };
             MethodesVoyage.CreerVoyage(voyage);
         }
 
         private void Supprimer()
         {
-            ConsoleHelper.AfficherEntete("Suppression d'un voyage");
+            Afficher("Suppression d'un voyage");
+            MethodesVoyage.SupprimerVoyage();
 
-            Afficher();
-            
         }
 
         private void Modifier()
         {
-            ConsoleHelper.AfficherEntete("Modification d'un voyage");
+            Afficher("Modification d'un voyage");
 
-            Afficher();
+            Voyage choix = MethodesVoyage.ChoisirVoyage();
+
+            choix.DateAller = ConsoleSaisie.SaisirDateObligatoire("Date Aller ?");
+            choix.DateRetour = ConsoleSaisie.SaisirDateObligatoire("Date Retour ?");
+            choix.PlacesDisponibles = ConsoleSaisie.SaisirEntierObligatoire("Places Disponibles ?");
+            choix.PrixParPersonne = ConsoleSaisie.SaisirDecimalObligatoire("Prix par Personne ?");
+            
+            MethodesVoyage.ModifierVoyage(choix);
 
         }
     }
