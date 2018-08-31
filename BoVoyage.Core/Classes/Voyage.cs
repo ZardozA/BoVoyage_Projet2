@@ -28,13 +28,14 @@ namespace BoVoyage.Core
 
         public static string Reserver(int places,DossierReservation dossier,Voyage voyage)
         {
-
-            if (voyage.PlacesDisponibles - places <0)
+            
+            if (voyage.PlacesDisponibles - places <0)                     
             {
                 
                 dossier.EtatDossierReservation = 2;
                 MethodesDossier.ModifierDossier(dossier);
                 return "Plus de place, le dossier est refusé";
+                
 
             }
             else

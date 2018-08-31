@@ -43,6 +43,14 @@ namespace BoVoyage.App
             {
                 FonctionAExecuter = this.Supprimer
             });
+            //menu.AjouterElement(new ElementMenu("5", "Annuler (Desactivé)")
+            //{
+
+            //});
+            menu.AjouterElement(new ElementMenu("6", "Creation Manuelle (debug)")
+            {
+                FonctionAExecuter = this.NouveauDebug
+            });
             menu.AjouterElement(new ElementMenuQuitterMenu("R", "Revenir au menu principal..."));
         }
 
@@ -60,7 +68,7 @@ namespace BoVoyage.App
             ConsoleHelper.AfficherListe(this.liste, strategieAffichageDossiers);
         }
 
-        /*private void Nouveau()
+        private void NouveauDebug()
         {
             ConsoleHelper.AfficherEntete("Nouveau dossier");
 
@@ -69,11 +77,11 @@ namespace BoVoyage.App
                 NumeroCarteBancaire = ConsoleSaisie.SaisirChaineObligatoire("Numero de Carte Bancaire ?"),
                 PrixParPersonne = ConsoleSaisie.SaisirDecimalObligatoire("Prix Par Personne ?"),
                 IdClient = ConsoleSaisie.SaisirEntierObligatoire("ID du client"),
-
-
+                IdVoyage = ConsoleSaisie.SaisirEntierObligatoire("ID du client"),
+                
             };
             MethodesDossier.CreerDossier(dossier);
-        }*/
+        }
 
         private void Nouveau()
         {
@@ -150,7 +158,7 @@ namespace BoVoyage.App
                 ValiderDossier(dossier);
                 
 
-                Voyage.Reserver(nbParticipants,dossier, dossier.Voyage);
+                Console.WriteLine($"{Voyage.Reserver(nbParticipants,dossier, dossier.Voyage)}");
 
             }
         }
