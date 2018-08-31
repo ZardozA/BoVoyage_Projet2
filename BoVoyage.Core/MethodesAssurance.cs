@@ -24,7 +24,7 @@ namespace BoVoyage.Core
                 contexte.SaveChanges();
             }
         }
-        private static Assurance ChoisirAssurance()
+        public static Assurance ChoisirAssurance()
         {
             Console.WriteLine("Quelle Assurance (Id)?");
             var idAssurance = int.Parse(Console.ReadLine());
@@ -35,7 +35,7 @@ namespace BoVoyage.Core
                     .Single(x => x.Id == idAssurance);
             }
         }
-        private static void ModifierAssurance(Assurance assurance)
+        public static void ModifierAssurance(Assurance assurance)
         {          
             using (var contexte = new Contexte())
             {
@@ -44,7 +44,7 @@ namespace BoVoyage.Core
                 contexte.SaveChanges();
             }
         }
-        public void SupprimerAssurance()
+        public static void SupprimerAssurance()
         {
             Assurance assurance = ChoisirAssurance();
             using (var contexte = new Contexte())
@@ -53,21 +53,5 @@ namespace BoVoyage.Core
                 contexte.SaveChanges();
             }
         }
-
-        //implementation Modification
-        /*
-          private void Modifier()
-        {
-            ConsoleHelper.AfficherEntete("Modifier une Assurance");
-            Assurance choix = MethodesAssurance.ChoisirAssurance();
-
-            choix.Type = ConsoleSaisie.SaisirChaineObligatoire("Nom ?");
-            choix.Montant = ConsoleSaisie.SaisirDecimalObligatoire("Montant ?");
-
-            MethodesAssurance.ModifierAssurance(choix);
-        }
-        */
-
-
     }
 }
