@@ -27,7 +27,11 @@ namespace BoVoyage.Core
             [ForeignKey("IdDestination")]
             public virtual Destination Destination { get; set; }
 
-        public static void Reserver(int places)
-        { }
+        public void Reserver(int places)
+        {
+            this.PlacesDisponibles -= places;
+            MethodesVoyage.ModifierVoyage(this);
+
+        }
     }
 }

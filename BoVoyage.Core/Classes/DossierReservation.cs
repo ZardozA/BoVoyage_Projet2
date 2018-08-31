@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using BoVoyage.Framework.UI;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BoVoyage.Core
@@ -23,20 +25,64 @@ namespace BoVoyage.Core
             [ForeignKey("IdClient")]
             public virtual Client Client { get; set; }
 
-
+        
+        public byte RaisonAnnulationDossier { get; set; }
 
         [NotMapped]
-        public int EtatDossierReservation { get; set; }
+        public byte EtatDossierReservation { get; set; }
 
         public virtual ICollection<Assurance> Assurances { get; set; }
 
         public virtual ICollection<Participant> Participants { get; set; }
 
+        
         public static void Annuler(int RaisonAnnulationDossier)
-        { }
-        public static void ValiderSolvabilite()
-        { }
-        public static void Accepter()
-        { }
+        {
+            
+            var dossier = MethodesDossier.ChoisirDossier();
+            Console.WriteLine(" choisir la raison de l'annulation");
+
+            int i = 1;
+            foreach (var raison in Enums.RaisonAnnulationDossier.GetValues(typeof(string)))
+                Console.Write($"({i++} {raison}) ");
+            Console.WriteLine();
+            var saisie= ConsoleSaisie.SaisirEntierObligatoire("Raison ?");
+            switch (saisie)
+            {
+                case 1:
+                    dossier.RaisonAnnulationDossier = 1;
+                    break;
+                case 2:
+                    dossier.RaisonAnnulationDossier = 2;
+                    break;
+            }               
+            dossier.EtatDossierReservation = 2;
+            MethodesDossier.ModifierDossier(dossier);
+
+
+        }
+        public void ValiderSolvabilite()
+        {
+            Console.WriteLine("Verification de Solvabilité");
+            Random r = new Random();
+            if (r.Next(0, 101) < 99)//simulation de verification de la banque
+            {
+                Console.WriteLine("ok");
+                Accepter();
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine("Erreur, le dossier va etre annulé");
+                Console.ReadKey();
+                Annuler(1);
+            }
+            
+        }
+        public void Accepter()
+        {
+            this.EtatDossierReservation = 3;
+            MethodesDossier.ModifierDossier(this);
+        }
     }
 }

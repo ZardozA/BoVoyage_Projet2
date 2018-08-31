@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BoVoyage.Core.Classes
+namespace BoVoyage.Core
 {
     public class Enums
     {
-        enum TypeAssurance { Annulation = 1 };
+        public enum TypeAssurance { Annulation = 1 };
 
-        enum EtatDossierResevation { enAttente, enCours, refusee, acceptee };
+        public enum EtatDossierResevation { enAttente, enCours, refusee, acceptee };
 
-        enum RaisonAnnulationDossier { client = 1, placesInsuffisantes };
+        public enum RaisonAnnulationDossier { client = 1, placesInsuffisantes };
 
 
     }
