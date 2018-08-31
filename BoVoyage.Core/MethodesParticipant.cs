@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BoVoyage.Framework.UI;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;

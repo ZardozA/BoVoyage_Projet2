@@ -23,20 +23,14 @@ namespace BoVoyage.Core
             [ForeignKey("IdClient")]
             public virtual Client Client { get; set; }
 
-        public int IdParticipant { get; set; }
-            [ForeignKey("IdParticipant")]
-            public virtual Participant Participant { get; set; }
 
-        public int IdAssurance { get; set; }
-            [ForeignKey("IdAssurance ")]
-            public virtual Assurance Assurance { get; set; }
 
         [NotMapped]
         public int EtatDossierReservation { get; set; }
 
-        public List<Assurance> Assurances { get; set; }
+        public virtual ICollection<Assurance> Assurances { get; set; }
 
-        public List<Participant> Participants { get; set; }
+        public virtual ICollection<Participant> Participants { get; set; }
 
         public static void Annuler(int RaisonAnnulationDossier)
         { }

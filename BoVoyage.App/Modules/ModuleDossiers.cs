@@ -13,7 +13,7 @@ namespace BoVoyage.App
                 InformationAffichage.Creer<DossierReservation>(x=>x.Id, "Id", 3),
                 InformationAffichage.Creer<DossierReservation>(x=>x.NumeroCarteBancaire, "Numero de Carte Bancaire", 20),
                 InformationAffichage.Creer<DossierReservation>(x=>x.PrixParPersonne, "Prix par personne", 20),
-                InformationAffichage.Creer<DossierReservation>(x=>x.Client.Id, "Id Client", 3),
+                InformationAffichage.Creer<DossierReservation>(x=>x.IdClient, "Id Client", 3),
                 
 
             };
@@ -70,8 +70,6 @@ namespace BoVoyage.App
                 PrixParPersonne = ConsoleSaisie.SaisirDecimalObligatoire("Prix Par Personne ?"),
                 IdClient = ConsoleSaisie.SaisirEntierObligatoire("ID du client"),
 
-                IdParticipant = ConsoleSaisie.SaisirEntierObligatoire("ID du Participant"),
-
 
             };
             MethodesDossier.CreerDossier(dossier);
@@ -94,8 +92,7 @@ namespace BoVoyage.App
             choix.PrixParPersonne = ConsoleSaisie.SaisirDecimalObligatoire("Prix Par Personne ?");
             choix.IdClient = ConsoleSaisie.SaisirEntierObligatoire("ID du client");
 
-            choix.IdParticipant = ConsoleSaisie.SaisirEntierObligatoire("ID du Participant");
-
+           
             MethodesDossier.ModifierDossier(choix);
         }
     }

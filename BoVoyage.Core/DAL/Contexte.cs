@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data.Entity;
+﻿using System.Data.Entity;
 
 namespace BoVoyage.Core
 {
@@ -16,6 +11,7 @@ namespace BoVoyage.Core
         public DbSet<Voyage> Voyages { get; set; }
         public DbSet<Destination> Destinations { get; set; }
         public DbSet<AgenceVoyage> AgencesVoyages { get; set; }
+        public DbSet<AssuranceDossier> AssurancesDossiers { get; set; }
 
     }
 }

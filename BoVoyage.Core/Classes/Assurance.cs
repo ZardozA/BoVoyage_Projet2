@@ -5,7 +5,6 @@ namespace BoVoyage.Core
 {
     public class Assurance
     {
-        [Column("IdAssurance")]
         public int Id { get; set; }
 
         public decimal Montant { get; set; }

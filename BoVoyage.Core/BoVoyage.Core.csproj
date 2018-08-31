@@ -52,6 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\AssuranceDossier.cs" />
     <Compile Include="MethodesAgence.cs" />
     <Compile Include="Classes\AgenceVoyage.cs" />
     <Compile Include="Classes\Assurance.cs" />
