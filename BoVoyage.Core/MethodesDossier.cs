@@ -24,7 +24,7 @@ namespace BoVoyage.Core
                 contexte.SaveChanges();
             }
         }
-        public void SupprimerDossier()
+        public static void SupprimerDossier()
         {
             DossierReservation dossier = ChoisirDossier();
             using (var contexte = new Contexte())
@@ -33,7 +33,7 @@ namespace BoVoyage.Core
                 contexte.SaveChanges();
             }
         }
-        private static void ModifierDossier(DossierReservation dossier)
+        public static void ModifierDossier(DossierReservation dossier)
         {
 
             using (var contexte = new Contexte())
@@ -43,7 +43,7 @@ namespace BoVoyage.Core
                 contexte.SaveChanges();
             }
         }
-        private static DossierReservation ChoisirDossier()
+        public static DossierReservation ChoisirDossier()
         {
             Console.WriteLine("Quelle dossier (Id)?");
             var idDossier = int.Parse(Console.ReadLine());
@@ -55,19 +55,7 @@ namespace BoVoyage.Core
             }
         }
 
-        //implementation Modification
-        /*
-          private void Modifier()
-        {
-            ConsoleHelper.AfficherEntete("Modifier un Dossier");
-            DossierReservation choix = MethodesDossier.ChoisirDossier();
-
-            choix.NumeroCarteBancaire = ConsoleSaisie.SaisirChaineObligatoire("Numero de Carte Bancaire ?");
-            choix.PrixParPersonne = ConsoleSaisie.SaisirDecimalObligatoire("Prix par personne ?");
-            
-            MethodesDossier.ModifierDossier(choix);
-        }
-        */
+        
 
     }
 }
