@@ -79,7 +79,6 @@ namespace BoVoyage.App
         {
             ConsoleHelper.AfficherEntete("Nouveau dossier");
 
-
             DossierReservation dossier = new DossierReservation();
 
             ModuleClients.AfficherClients("Liste des Clients");
@@ -92,49 +91,72 @@ namespace BoVoyage.App
             dossier.PrixParPersonne = ConsoleSaisie.SaisirDecimalObligatoire("Prix Par Personne ?");
             MethodesDossier.CreerDossier(dossier);
 
+
+            NouveauDossierParticipant(dossier);
+
+        }
+
+        private void NouveauDossierParticipant(DossierReservation dossier)
+        {
             int nbParticipants = 1;
-
-
-            while (nbParticipants > 9)
+            do
             {
                 nbParticipants = ConsoleSaisie.SaisirEntierObligatoire("Indiquer le nombre de participants qui doit être inférieur à 9:");
             }
+            while (nbParticipants > 9);
+
+            List<Participant> listParticipants = new List<Participant>();
 
             for (var i = nbParticipants; i > 0; i--)
             {
                 Console.WriteLine("Voulez-vous créer un nouveau participant (O/N)?");
                 var choix = Console.ReadLine();
-                    switch (choix)
-                    {
-                        case "O":
-                        Participant participant = new Participant()
+                switch (choix)
+                {
+                    case "O":
                         {
-                            Civilite = ConsoleSaisie.SaisirChaineObligatoire("Civilité ?"),
-                            Nom = ConsoleSaisie.SaisirChaineObligatoire("Nom ?"),
-                            Prenom = ConsoleSaisie.SaisirChaineObligatoire("Prénom?"),
-                            Adresse = ConsoleSaisie.SaisirChaineObligatoire("Adresse ?"),
-                            Telephone = ConsoleSaisie.SaisirChaineObligatoire("Téléphone ?"),
-                            DateNaissance = ConsoleSaisie.SaisirDateObligatoire("Date de Naissance ?"),
-                            IdDossier = dossier.Id,
-                        };
-
-                        //participant.Reduction = 
-                        MethodesParticipant.CreerParticipant(participant);
-                        
+                            Participant participant = new Participant()
+                            {
+                                Civilite = ConsoleSaisie.SaisirChaineObligatoire("Civilité ?"),
+                                Nom = ConsoleSaisie.SaisirChaineObligatoire("Nom ?"),
+                                Prenom = ConsoleSaisie.SaisirChaineObligatoire("Prénom?"),
+                                Adresse = ConsoleSaisie.SaisirChaineObligatoire("Adresse ?"),
+                                Telephone = ConsoleSaisie.SaisirChaineObligatoire("Téléphone ?"),
+                                DateNaissance = ConsoleSaisie.SaisirDateObligatoire("Date de Naissance ?"),
+                                IdDossier = dossier.Id,
+                            };
+                            OutilsReservation.CalculerReductionAge(participant);
+                            MethodesParticipant.CreerParticipant(participant);
+                            listParticipants.Add(MethodesParticipant.ChoisirParticipant());
+                        }
                         break;
 
-                    }
-                    
-                  
-                ///ModuleParticipants.AfficherParticipants("")
+                    case "N":
+                        {
+
+                            ModuleParticipants.AfficherParticipants("Liste des participants");
+                            Participant participant = MethodesParticipant.ChoisirParticipant();
+                            participant.IdDossier = dossier.Id;
+                            MethodesParticipant.ModifierParticipant(participant);
+                            listParticipants.Add(participant);
+
+                        }
+                        break;
+
+
+                }
+                Console.WriteLine($"Ce voyage coute {OutilsReservation.CalculerValeurVoyage(listParticipants, dossier)} Euros");
+
+                ValiderDossier(dossier);
+             
+
+
             }
+        }
 
-            
-
-
-
-
-            MethodesDossier.CreerDossier(dossier);
+        private void ValiderDossier(DossierReservation dossier)
+        {
+           //DossierReservation.ValiderSolvabilite();
         }
 
         private void Supprimer()

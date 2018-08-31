@@ -30,7 +30,7 @@ namespace BoVoyage.Core
 
         public virtual ICollection<Assurance> Assurances { get; set; }
 
-        public virtual ICollection<Participant> Participants { get; set; }
+        public virtual ICollection<Participant> ListParticipants { get; set; }
 
         
         /*public void Annuler(int RaisonAnnulationDossier)

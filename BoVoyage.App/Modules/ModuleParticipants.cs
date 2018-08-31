@@ -59,6 +59,13 @@ namespace BoVoyage.App
             this.liste = MethodesParticipant.GetParticipants();
             ConsoleHelper.AfficherListe(this.liste, strategieAffichageParticipants);
         }
+        public static void AfficherParticipants(string titre)
+        {
+            ConsoleHelper.AfficherEntete(titre);
+            List<Participant> liste = new List<Participant>();
+            liste = MethodesParticipant.GetParticipants();
+            ConsoleHelper.AfficherListe(liste, strategieAffichageParticipants);
+        }
 
         public void Nouveau()
         {
