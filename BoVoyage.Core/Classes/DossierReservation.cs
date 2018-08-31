@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
 
 namespace BoVoyage.Core
 {
@@ -49,28 +50,36 @@ namespace BoVoyage.Core
 
         }*/
 
-        public void ValiderSolvabilite()
+        public static string ValiderSolvabilite(DossierReservation dossier)
         {
             Console.WriteLine("Verification de Solvabilité");
             Random r = new Random();
-            if (r.Next(0, 101) < 99)//simulation de verification de la banque
+            if (r.Next(0, 101) < 80)//simulation de verification de la banque
             {
                 Console.WriteLine("ok");
-                Accepter();
-                Console.ReadKey();
+                return "ok";
+                
             }
             else
             {
-                Console.WriteLine("Erreur, le dossier va etre annulé");
-                Console.ReadKey();
-                /*Annuler(1);*/
+                Console.WriteLine("Probleme de Solvabilité,\n le dossier Doit etre supprimé \n(la suppression automatique n'est pas encore en place"); 
+                using (var contexte = new Contexte())
+                {
+                    //contexte.Entry(dossier).State = EntityState.Deleted;
+                    //contexte.SaveChanges();
+                }
+                return "nok";
+                
+              
             }
             
         }
-        public void Accepter()
+        public static void Accepter(DossierReservation dossier)
         {
-            this.EtatDossierReservation = 3;
-            MethodesDossier.ModifierDossier(this);
+            dossier.EtatDossierReservation = 3;
+            MethodesDossier.ModifierDossier(dossier);
+            Console.WriteLine("Dossier Accepté!");
+            Console.ReadKey();
         }
     }
 }

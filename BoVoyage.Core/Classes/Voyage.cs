@@ -26,16 +26,22 @@ namespace BoVoyage.Core
             [ForeignKey("IdDestination")]
             public virtual Destination Destination { get; set; }
 
-        public string Reserver(int places)
+        public static string Reserver(int places,DossierReservation dossier,Voyage voyage)
         {
-            if (this.PlacesDisponibles - places <0)
+
+            if (voyage.PlacesDisponibles - places <0)
             {
-                return "Plus de place";
+                
+                dossier.EtatDossierReservation = 2;
+                MethodesDossier.ModifierDossier(dossier);
+                return "Plus de place, le dossier est refusé";
+
             }
             else
             {
-                this.PlacesDisponibles -= places;
-                MethodesVoyage.ModifierVoyage(this);
+                voyage.PlacesDisponibles -= places;
+                MethodesVoyage.ModifierVoyage(voyage);
+                DossierReservation.Accepter(dossier);
                 return "Réservé";
             }
 

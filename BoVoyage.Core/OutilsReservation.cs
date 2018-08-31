@@ -14,16 +14,9 @@ namespace BoVoyage.Core
             foreach (Participant participant in listParticipants)
 
             {
-
-                CalculerReductionAge(participant);
-        
-
-                dossier.PrixTotal += decimal.Multiply(dossier.PrixParPersonne, Convert.ToDecimal(participant.Reduction));
-
-                
+                CalculerReductionAge(participant);      
+                dossier.PrixTotal += decimal.Multiply(dossier.PrixParPersonne, Convert.ToDecimal(participant.Reduction));              
             }
-
-
 
             return dossier.PrixTotal;
         }
@@ -39,6 +32,12 @@ namespace BoVoyage.Core
             if (age < 12)
             {
                 participant.Reduction = 0.4;
+                MethodesParticipant.ModifierParticipant(participant);
+            }
+            else
+            {
+                participant.Reduction = 1;
+                MethodesParticipant.ModifierParticipant(participant);
             }
         }
 

@@ -148,15 +148,28 @@ namespace BoVoyage.App
                 Console.WriteLine($"Ce voyage coute {OutilsReservation.CalculerValeurVoyage(listParticipants, dossier)} Euros");
 
                 ValiderDossier(dossier);
-             
+                
 
+                Voyage.Reserver(nbParticipants,dossier, dossier.Voyage);
 
             }
         }
 
         private void ValiderDossier(DossierReservation dossier)
         {
-           //DossierReservation.ValiderSolvabilite();
+            dossier.EtatDossierReservation = 0;
+            string validation =  DossierReservation.ValiderSolvabilite(dossier);
+            switch (validation)
+            {
+                case "ok":
+                    dossier.EtatDossierReservation = 1;
+                    MethodesDossier.ModifierDossier(dossier);
+                    break;
+                case "nok":
+                    Supprimer();
+                    break;
+
+            }
         }
 
         private void Supprimer()
