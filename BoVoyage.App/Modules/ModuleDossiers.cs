@@ -83,7 +83,7 @@ namespace BoVoyage.App
 
         private void Modifier()
         {
-            Afficher("Modifier une Agence");
+            Afficher("Modifier un Dossier");
 
             DossierReservation choix = MethodesDossier.ChoisirDossier();
 
