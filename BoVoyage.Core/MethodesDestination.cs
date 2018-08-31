@@ -33,7 +33,7 @@ namespace BoVoyage.Core
                 contexte.SaveChanges();
             }
         }
-        private static void ModifierDestination(Destination destination)
+        public static void ModifierDestination(Destination destination)
         {
             using (var contexte = new Contexte())
             {
@@ -42,7 +42,7 @@ namespace BoVoyage.Core
                 contexte.SaveChanges();
             }
         }
-        private static Destination ChoisirDestination()
+        public static Destination ChoisirDestination()
         {
             Console.WriteLine("Quelle Destination (Id)?");
             var idDestination = int.Parse(Console.ReadLine());
@@ -53,23 +53,6 @@ namespace BoVoyage.Core
                     .Single(x => x.Id == idDestination);
             }
         }
-
-        //implementation Modification
-        /*
-          private void Modifier()
-        {
-            ConsoleHelper.AfficherEntete("Modifier un Dossier");
-            Destination choix = MethodesDestination.ChoisirDestination();
-
-            choix.Continent = ConsoleSaisie.SaisirChaineObligatoire("Continent ?");
-            choix.Pays = ConsoleSaisie.SaisirChaineObligatoire("Pays ?");
-            choix.Region = ConsoleSaisie.SaisirChaineObligatoire("Region ?");
-            choix.Description = ConsoleSaisie.SaisirChaineObligatoire("Description ?");
-
-
-            MethodesDestination.ModifierDestination(choix);
-        }
-        */
         
     }
 }
