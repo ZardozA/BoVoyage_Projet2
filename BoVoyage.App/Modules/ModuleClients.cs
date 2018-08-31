@@ -59,7 +59,7 @@ namespace BoVoyage.App
         {
             ConsoleHelper.AfficherEntete("Nouveau");
 
-            /*Client client = new Client()
+            Client client = new Client()
             {
                 Civilite = ConsoleSaisie.SaisirChaineObligatoire("Civilité ?"),
                 Nom = ConsoleSaisie.SaisirChaineObligatoire("Nom ?"),
@@ -67,10 +67,9 @@ namespace BoVoyage.App
                 Adresse = ConsoleSaisie.SaisirChaineObligatoire("Adresse ?"),
                 Telephone = ConsoleSaisie.SaisirChaineObligatoire("Téléphone ?"),
                 DateNaissance = ConsoleSaisie.SaisirDateObligatoire("Date de Naissance ?"),
-                Email = ConsoleSaisie.SaisirChaineObligatoire("Email ?")),
-                Reduction = ConsoleSaisie.SaisirDecimalOptionnel("Réduction ?"),
+                Email = ConsoleSaisie.SaisirChaineObligatoire("Email ?"),
             };
-            MethodesClient.CreerClient(client);*/
+            MethodesClient.CreerClient(client);
         }
 
         private void Supprimer()
