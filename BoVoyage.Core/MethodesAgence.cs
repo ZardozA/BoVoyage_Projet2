@@ -23,11 +23,10 @@ namespace BoVoyage.Core
             using (var contexte = new Contexte())
             {
                 contexte.AgencesVoyages.Add(agence);
-                contexte.SaveChanges();
-                //List<AgenceVoyage> liste = new List<AgenceVoyage>();
+                contexte.SaveChanges();               
             }
         }     
-        public void SupprimerAgence()
+        public static void SupprimerAgence()
         {
             AgenceVoyage agence = ChoisirAgence();
             using (var contexte = new Contexte())
@@ -35,8 +34,8 @@ namespace BoVoyage.Core
                 contexte.Entry(agence).State = EntityState.Deleted;
                 contexte.SaveChanges();
             }
-        }           
-        private static void ModifierAgence(AgenceVoyage agence)
+        }
+        public static void ModifierAgence(AgenceVoyage agence)
         {                     
             using (var contexte = new Contexte())
             {
@@ -45,7 +44,7 @@ namespace BoVoyage.Core
                 contexte.SaveChanges();
             }
         }       
-        private static AgenceVoyage ChoisirAgence()
+        public static AgenceVoyage ChoisirAgence()
         {
             Console.WriteLine("Quelle agence (Id)?");
             var idAgence = int.Parse(Console.ReadLine());

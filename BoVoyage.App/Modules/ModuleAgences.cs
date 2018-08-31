@@ -7,13 +7,12 @@ namespace BoVoyage.App
 {
     public class ModuleAgences : ModuleBase<Application>
     {
-        // On définit ici les propriétés qu'on veut afficher
-        //  et la manière de les afficher
-        private static readonly List<InformationAffichage> strategieAffichageAgences =
+        private static readonly List<InformationAffichage> strategieAffichageAgence =
             new List<InformationAffichage>
             {
                 InformationAffichage.Creer<AgenceVoyage>(x=>x.Id, "Id", 3),
-                InformationAffichage.Creer<AgenceVoyage>(x=>x.Nom, "Nom", 25),
+                InformationAffichage.Creer<AgenceVoyage>(x=>x.Nom, "Nom", 25),               
+              
             };
 
         private List<AgenceVoyage> liste = new List<AgenceVoyage>();
@@ -21,8 +20,6 @@ namespace BoVoyage.App
         public ModuleAgences(Application application, string nomModule)
          : base(application, nomModule)
         {
-         
-
         }
 
         protected override void InitialiserMenu(Menu menu)
@@ -46,38 +43,46 @@ namespace BoVoyage.App
             menu.AjouterElement(new ElementMenuQuitterMenu("R", "Revenir au menu principal..."));
         }
 
+        private void Afficher(string titre)
+        {
+            ConsoleHelper.AfficherEntete(titre);
+            this.liste = MethodesAgence.GetAgences();
+            ConsoleHelper.AfficherListe(this.liste, strategieAffichageAgence);
+        }
+
         private void Afficher()
         {
             ConsoleHelper.AfficherEntete("Afficher");
             this.liste = MethodesAgence.GetAgences();
-            ConsoleHelper.AfficherListe(this.liste, strategieAffichageAgences);
+            ConsoleHelper.AfficherListe(this.liste, strategieAffichageAgence);
         }
 
         private void Nouveau()
         {
             ConsoleHelper.AfficherEntete("Nouveau");
 
-            var agenceVoyage = new AgenceVoyage()
-            {
-                Nom = ConsoleSaisie.SaisirChaineObligatoire("Nom ?"),
+            AgenceVoyage agence = new AgenceVoyage()
+            {              
+                Nom = ConsoleSaisie.SaisirChaineObligatoire("Nom ?"),             
             };
-            MethodesAgence.CreerAgence(agenceVoyage);
+            MethodesAgence.CreerAgence(agence);
         }
 
         private void Supprimer()
         {
-            ConsoleHelper.AfficherEntete("Suppression");
-
-            Afficher();
-            
+            Afficher("Supprimer une Agence");
+            MethodesAgence.SupprimerAgence();
         }
 
         private void Modifier()
         {
-            ConsoleHelper.AfficherEntete("Modification");
+            Afficher("Modifier une Agence");
 
-            Afficher();
+            AgenceVoyage choix = MethodesAgence.ChoisirAgence();
+          
+            choix.Nom = ConsoleSaisie.SaisirChaineObligatoire("Nom ?");
 
+            MethodesAgence.ModifierAgence(choix);
         }
     }
 }
