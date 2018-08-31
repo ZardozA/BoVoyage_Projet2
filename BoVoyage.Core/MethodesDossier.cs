@@ -55,7 +55,19 @@ namespace BoVoyage.Core
             }
         }
 
-        
+        public static void CalculerReductionAge(DateTime date)
+        {
+            DateTime now = DateTime.Today;
+            int age = now.Year - date.Year;
+            if (now < date.AddYears(age))
+            {
+                age--;
+            }
+            if (age<12)
+            {
+
+            }
+        }
 
     }
 }
