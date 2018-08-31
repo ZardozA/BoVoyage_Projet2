@@ -45,7 +45,6 @@ namespace BoVoyage.Core
         }
         public static Client ChoisirClient()
         {
-            AfficherClient();
 
             Console.WriteLine("Quel client (Id)?");
 
@@ -55,15 +54,6 @@ namespace BoVoyage.Core
             {
                 return contexte.Clients
                     .Single(x => x.Id == idClient);
-            }
-        }
-
-        public static void AfficherClient()
-        {
-            var liste = MethodesClient.GetClients();
-            foreach (var client in liste)
-            {
-                Console.Write($"({client.Id}) - {client.Nom} - {client.Prenom} - {client.DateNaissance} \n");
             }
         }
 }

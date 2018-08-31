@@ -23,8 +23,6 @@ namespace BoVoyage.App
         public ModuleClients(Application application, string nomModule)
          : base(application, nomModule)
         {
-
-
         }
 
         protected override void InitialiserMenu(Menu menu)
@@ -46,6 +44,13 @@ namespace BoVoyage.App
                 FonctionAExecuter = this.Supprimer
             });
             menu.AjouterElement(new ElementMenuQuitterMenu("R", "Revenir au menu principal..."));
+        }
+
+        private void Afficher(string titre)
+        {
+            ConsoleHelper.AfficherEntete(titre);
+            this.liste = MethodesClient.GetClients();
+            ConsoleHelper.AfficherListe(this.liste, strategieAffichageClients);
         }
 
         private void Afficher()
@@ -74,16 +79,13 @@ namespace BoVoyage.App
 
         private void Supprimer()
         {
-            ConsoleHelper.AfficherEntete("Suppression");
+            Afficher("Supprimer un client");
             MethodesClient.SupprimerClient();
-            
-
         }
+
         private void Modifier()
         {
-            ConsoleHelper.AfficherEntete("Modifier un Client");
-
-            Afficher();
+            Afficher("Modifier un client");
 
             Client choix = MethodesClient.ChoisirClient();
 
