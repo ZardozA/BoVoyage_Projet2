@@ -6,6 +6,7 @@ namespace BoVoyage.Core
     [Table("AgencesVoyages")]
     public class AgenceVoyage
     {
+        [Column("IdAgenceVoyage")]
         public int Id { get; set; }
 
         public string Nom { get; set; }
