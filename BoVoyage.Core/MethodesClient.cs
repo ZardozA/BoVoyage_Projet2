@@ -56,5 +56,5 @@ namespace BoVoyage.Core
                     .Single(x => x.Id == idClient);
             }
         }
-}
+    }
 }
