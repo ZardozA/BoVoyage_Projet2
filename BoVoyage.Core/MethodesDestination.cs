@@ -24,7 +24,7 @@ namespace BoVoyage.Core
                 contexte.SaveChanges();
             }
         }
-        public void SupprimerDestination()
+        public static void SupprimerDestination()
         {
             Destination destination = ChoisirDestination();
             using (var contexte = new Contexte())
@@ -53,6 +53,5 @@ namespace BoVoyage.Core
                     .Single(x => x.Id == idDestination);
             }
         }
-        
     }
 }
