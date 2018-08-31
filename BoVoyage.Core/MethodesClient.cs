@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BoVoyage.Framework.UI;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -33,7 +34,7 @@ namespace BoVoyage.Core
                 contexte.SaveChanges();
             }
         }
-        private static void ModifierClient(Client client)
+        public static void ModifierClient(Client client)
         {
             using (var contexte = new Contexte())
             {
@@ -42,9 +43,16 @@ namespace BoVoyage.Core
                 contexte.SaveChanges();
             }
         }
-        private static Client ChoisirClient()
+        public static Client ChoisirClient()
         {
-            Console.WriteLine("Quelle Client (Id)?");
+            var liste = MethodesClient.GetClients();
+            foreach (var client in liste)
+            {
+                Console.Write($"({client.Id}) - {client.Nom} - {client.Prenom} - {client.DateNaissance} \n");
+            }
+
+            Console.WriteLine("Quelle agence (Id)?");
+
             var idClient = int.Parse(Console.ReadLine());
 
             using (var contexte = new Contexte())

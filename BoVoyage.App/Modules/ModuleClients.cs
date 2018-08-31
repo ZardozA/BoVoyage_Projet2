@@ -23,7 +23,7 @@ namespace BoVoyage.App
         public ModuleClients(Application application, string nomModule)
          : base(application, nomModule)
         {
-         
+
 
         }
 
@@ -77,14 +77,22 @@ namespace BoVoyage.App
             ConsoleHelper.AfficherEntete("Suppression");
 
             Afficher();
-            
+
         }
         private void Modifier()
         {
-            ConsoleHelper.AfficherEntete("Modification");
+            ConsoleHelper.AfficherEntete("Modifier un Client");
+            Client choix = MethodesClient.ChoisirClient();
 
-            Afficher();
+            choix.Civilite = ConsoleSaisie.SaisirChaineObligatoire("Civilite ?");
+            choix.Nom = ConsoleSaisie.SaisirChaineObligatoire("Nom ?");
+            choix.Prenom = ConsoleSaisie.SaisirChaineObligatoire("Prenom ?");
+            choix.Adresse = ConsoleSaisie.SaisirChaineObligatoire("Adresse ?");
+            choix.Telephone = ConsoleSaisie.SaisirChaineObligatoire("Telephone ?");
+            choix.DateNaissance = ConsoleSaisie.SaisirDateObligatoire("DateNaissance ?");
+            choix.Email = ConsoleSaisie.SaisirChaineObligatoire("Email ?");
 
+            MethodesClient.ModifierClient(choix);
         }
     }
 }
